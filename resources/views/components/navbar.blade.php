@@ -6,7 +6,7 @@
 
     <a
         class="button"
-        href="#"
+        href="{{ route('kategori.index') }}"
     >Kategori</a>
 
     <a
