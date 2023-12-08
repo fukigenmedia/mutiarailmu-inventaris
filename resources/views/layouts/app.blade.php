@@ -14,12 +14,24 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css"
         rel="stylesheet"
     >
+
+    <style>
+        :root {
+            --back-color: #e4e4e4;
+        }
+    </style>
 </head>
 
 <body>
     @include('components.navbar')
 
-    @yield('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 
     @include('components.footer')
 </body>
