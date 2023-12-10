@@ -1,26 +1,58 @@
-<header class="sticky">
-    <a
-        class="logo"
-        href="{{ url('/') }}"
-    >Inventaris</a>
+<nav
+    class="navbar navbar-expand-lg bg-dark border-bottom border-body"
+    data-bs-theme="dark"
+>
+    <div class="container">
+        <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-toogle"
+            type="button"
+            aria-controls="navbar-toogle"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <a
-        class="button"
-        href="{{ route('kategori.index') }}"
-    >Kategori</a>
+        <div
+            class="navbar-collapse collapse"
+            id="navbar-toogle"
+        >
+            <a
+                class="navbar-brand h1 mb-0"
+                href="{{ url('/') }}"
+            >Inventaris</a>
 
-    <a
-        class="button"
-        href="#"
-    >Ruangan</a>
+            <ul class="navbar-nav mb-lg-0 mb-2 me-auto">
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="{{ route('kategori.index') }}"
+                    >Kategori</a>
+                </li>
 
-    <a
-        class="button"
-        href="#"
-    >Barang</a>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#"
+                    >Ruangan</a>
+                </li>
 
-    <a
-        class="button"
-        href="#"
-    >Riwayat</a>
-</header>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#"
+                    >Barang</a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#"
+                    >Riwayat</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

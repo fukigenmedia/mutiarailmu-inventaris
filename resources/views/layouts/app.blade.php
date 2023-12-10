@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+    data-bs-theme="light"
+    lang="en"
+>
 
 <head>
     <meta charset="UTF-8">
@@ -11,31 +14,23 @@
     <title>@yield('title') &mdash; Inventaris</title>
 
     <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
-    <style>
-        :root {
-            --back-color: #e4e4e4;
-        }
-    </style>
 </head>
 
-<body>
+<body class="bg-body-tertiary">
     @include('components.navbar')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                @include('components.alert')
+    <div class="container my-3">
+        @include('components.alert')
 
-                @yield('content')
-            </div>
-        </div>
+        @yield('content')
     </div>
 
     @include('components.footer')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
