@@ -42,15 +42,8 @@
                 <li class="nav-item">
                     <a
                         class="nav-link"
-                        href="#"
+                        href="{{ route('barang.index') }}"
                     >Barang</a>
-                </li>
-
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="#"
-                    >Riwayat</a>
                 </li>
             </ul>
         </div>
