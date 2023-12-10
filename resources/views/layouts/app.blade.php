@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html
-    data-bs-theme="light"
-    lang="en"
->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +37,7 @@
             }
         }
 
-        function toggle(id) {
+        function toggleElement(id) {
             let element = document.getElementById(id);
 
             if (element.style.display === 'none') {
@@ -49,6 +46,23 @@
                 element.style.display = 'none';
             }
         }
+
+        function toggleTheme(change) {
+            let theme = localStorage.getItem('theme');
+
+            if (!theme) {
+                theme = 'light';
+            }
+
+            if (change) {
+                theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+            }
+
+            document.querySelector('html').setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        toggleTheme();
     </script>
 </body>
 

@@ -17,7 +17,7 @@
             <button
                 class="btn btn-secondary"
                 type="button"
-                onclick="toggle('cari-wrapper')"
+                onclick="toggleElement('cari-wrapper')"
             >Filter</button>
         </div>
 
@@ -29,14 +29,6 @@
             method="GET"
         >
             <div class="row">
-                {{--
-    cari_nama
-cari_kode
-cari_kondisi
-cari_kategori
-hanya_pecah_belah
- --}}
-
                 <div class="col-md-3">
                     <input
                         class="form-control mb-2"
@@ -100,7 +92,7 @@ hanya_pecah_belah
 
         <div class="table-responsive">
             <table class="table">
-                <thead class="table-light">
+                <thead class="table-active">
                     <tr>
                         <th width="10px">#</th>
                         <th>Kode</th>

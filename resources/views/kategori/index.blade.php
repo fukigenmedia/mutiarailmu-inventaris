@@ -17,7 +17,7 @@
 
         <div class="table-responsive">
             <table class="table">
-                <thead class="table-light">
+                <thead class="table-active">
                     <tr>
                         <th width="10px">#</th>
                         <th>Kode</th>
