@@ -3,58 +3,71 @@
 @section('title', 'Sunting Kategori')
 
 @section('content')
-    <div class="card fluid">
-        <h2 class="section double-padded">Sunting Kategori</h2>
+    <form
+        class="card"
+        action="{{ route('kategori.update', $kategori->id) }}"
+        method="POST"
+    >
+        <div class="card-header">
+            <h4>Sunting Kategori "{{ $kategori->nama }}"</h4>
+        </div>
 
-        <div class="section">
+        <div class="card-header">
             <a
-                class="button"
+                class="btn btn-secondary"
                 href="{{ route('kategori.index') }}"
             >Kembali</a>
         </div>
 
-        <div class="section">
-            <form
-                action="{{ route('kategori.update', $kategori->id) }}"
-                method="POST"
-            >
-                @csrf
-                @method('PUT')
+        <div class="card-body">
+            @csrf
+            @method('put')
 
-                <fieldset>
-                    <legend>Sunting kategori "{{ $kategori->nama }}"</legend>
+            <div class="mb-3">
+                <label
+                    class="form-label"
+                    for="kode"
+                >Kode</label>
 
-                    <div class="input-group vertical">
-                        <label for="kode">Kode</label>
-                        <input
-                            id="kode"
-                            name="kode"
-                            type="text"
-                            value="{{ old('kode') ?? $kategori->kode }}"
-                        />
+                <input
+                    class="form-control @error('kode') is-invalid @enderror"
+                    id="kode"
+                    name="kode"
+                    type="text"
+                    value="{{ old('kode') ?? $kategori->kode }}"
+                >
+
+                @error('kode')
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
-                    @error('kode')
-                        <mark class="secondary">{{ $message }}</mark>
-                    @enderror
+                @enderror
+            </div>
 
-                    <div class="input-group vertical">
-                        <label for="nama">Nama</label>
-                        <input
-                            id="nama"
-                            name="nama"
-                            type="text"
-                            value="{{ old('nama') ?? $kategori->nama }}"
-                        />
+            <div class="mb-3">
+                <label
+                    class="form-label"
+                    for="nama"
+                >Nama</label>
+
+                <input
+                    class="form-control @error('nama') is-invalid @enderror"
+                    id="nama"
+                    name="nama"
+                    type="text"
+                    value="{{ old('nama') ?? $kategori->nama }}"
+                >
+
+                @error('nama')
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
-                    @error('nama')
-                        <mark class="secondary">{{ $message }}</mark>
-                    @enderror
-                </fieldset>
-
-                <div class="input-group">
-                    <button class="primary">Simpan</button>
-                </div>
-            </form>
+                @enderror
+            </div>
         </div>
-    </div>
+
+        <div class="card-footer">
+            <button class="btn btn-primary">Simpan Perubahan</button>
+        </div>
+    </form>
 @endsection

@@ -3,45 +3,48 @@
 @section('title', 'Daftar Kategori')
 
 @section('content')
-    <div class="card fluid">
-        <h2 class="section double-padded">Daftar Kategori</h2>
+    <div class="card">
+        <div class="card-header">
+            <h4>Daftar Kategori</h4>
+        </div>
 
-        <div class="section">
+        <div class="card-header">
             <a
-                class="button"
+                class="btn btn-dark"
                 href="{{ route('kategori.create') }}"
             >Tambah</a>
         </div>
 
-        <div class="section">
-            <table>
-                <thead>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-light">
                     <tr>
-                        <th>No.</th>
+                        <th width="10px">#</th>
                         <th>Kode</th>
                         <th>Nama</th>
-                        <th></th>
+                        <th width="150px">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach ($dataKategori as $kategori)
+
+                <tbody class="table-group-divider">
+                    @forelse ($dataKategori as $kategori)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $kategori->kode }}</td>
                             <td>{{ $kategori->nama }}</td>
                             <td>
                                 <a
+                                    class="btn btn-sm btn-dark"
                                     href="{{ route('kategori.edit', $kategori->id) }}"
-                                    role="button"
-                                ><span class="icon-edit"></span></a>
+                                >Sunting</a>
 
                                 <a
-                                    role="button"
-                                    onclick="if(confirm('Apakah Anda yakin ingin menghapus kategori ini?')) { event.preventDefault(); document.getElementById('hapus-kategori').submit(); }"
-                                ><span class="icon-alert"></span></a>
+                                    class="btn btn-sm btn-danger"
+                                    onclick="hapusData('kategori', '{{ $kategori->id }}')"
+                                >Hapus</a>
 
                                 <form
-                                    id="hapus-kategori"
+                                    id="hapus-kategori-{{ $kategori->id }}"
                                     style="display: none"
                                     action="{{ route('kategori.destroy', $kategori->id) }}"
                                     method="post"
@@ -51,7 +54,15 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="4">
+                                <div class="my-5 text-center">
+                                    Data tidak ditemukan.
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
