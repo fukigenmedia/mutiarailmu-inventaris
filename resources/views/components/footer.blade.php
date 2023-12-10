@@ -1,4 +1,4 @@
-<footer class="navbar fixed-bottom bg-body-secondary">
+<footer class="navbar bg-body-secondary mt-auto">
     <div class="container">
         <span class="navbar-text">
             &copy; {{ date('Y') }}
