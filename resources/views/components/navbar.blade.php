@@ -35,7 +35,7 @@
                 <li class="nav-item">
                     <a
                         class="nav-link"
-                        href="#"
+                        href="{{ route('ruangan.index') }}"
                     >Ruangan</a>
                 </li>
 

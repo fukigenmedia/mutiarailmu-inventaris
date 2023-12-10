@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\RuanganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,13 @@ Route::get('kategori/{id}', [KategoriController::class, 'show'])->name('kategori
 Route::get('kategori/{id}/sunting', [KategoriController::class, 'edit'])->name('kategori.edit');
 Route::put('kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 Route::delete('kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+
+Route::prefix('ruangan')->name('ruangan.')->group(function () {
+    Route::get('/', [RuanganController::class, 'index'])->name('index');
+    Route::get('/tambah', [RuanganController::class, 'create'])->name('create');
+    Route::post('/', [RuanganController::class, 'store'])->name('store');
+    Route::get('/{id}', [RuanganController::class, 'show'])->name('show');
+    Route::get('/{id}/sunting', [RuanganController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [RuanganController::class, 'update'])->name('update');
+    Route::delete('/{id}', [RuanganController::class, 'destroy'])->name('destroy');
+});
