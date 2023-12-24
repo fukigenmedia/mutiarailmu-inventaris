@@ -33,7 +33,8 @@
 4. Jalankan migrate dan seeder untuk memasukkan table dan isi defaultnya
 
     ```bash
-    php artisan migrate --seed
+    php artisan migrate
+    php artisan db:seed
     ```
 
     > Jika tidak dapat melakukan migrate, buat database dengan nama `mutiarailmu_inventaris`. Kemudian migrate ulang.

@@ -89,9 +89,9 @@ class BarangController extends Controller
      */
     public function show(string $id)
     {
-        $barang = Barang::with('kategori')->firstOrFail($id);
+        $barang = Barang::with('kategori')->where('id', $id)->firstOrFail();
 
-        return view('barang.edit', compact('barang'));
+        return view('barang.show', compact('barang'));
     }
 
     /**
