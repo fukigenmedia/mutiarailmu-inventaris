@@ -54,12 +54,53 @@
                 </li>
             </ul>
 
-            <div>
-                <button
-                    class="btn btn-sm"
-                    type="button"
-                    onclick="toggleTheme(true)"
-                >🌗</button>
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button
+                        class="btn dropdown-toggle text-white"
+                        data-bs-toggle="dropdown"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        {{ auth()->user()->name }}
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                            >👤 Profil</a>
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                                onclick="toggleTheme(true)"
+                            >🌗 Ganti Tema</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                                onclick="event.preventDefault();document.getElementById(`logout`).submit();"
+                            >🛑 Logout</a>
+
+                            <form
+                                id="logout"
+                                style="display: none"
+                                action="{{ route('logout') }}"
+                                method="post"
+                            >
+                                @csrf
+                                @method('delete')
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
