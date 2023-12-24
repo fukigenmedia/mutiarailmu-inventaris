@@ -38,7 +38,13 @@
 
     > Jika tidak dapat melakukan migrate, buat database dengan nama `mutiarailmu_inventaris`. Kemudian migrate ulang.
 
-5. Mulai jalankan aplikasinya
+5. Link storage app ke public untuk dapat upload file/gambar
+
+    ```bash
+    php artisan storage:link
+    ```
+
+6. Mulai jalankan aplikasinya
     ```bash
     php artisan serve
     ```
